@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘의 밥상</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      padding: 40px 16px;
+      font-family: "Noto Serif KR", "Nanum Myeongjo", "Apple SD Gothic Neo", "Malgun Gothic", serif;
+      color: #4a2e1f;
+      /* 한지 느낌의 따뜻한 배경 */
+      background:
+        radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.6), transparent 40%),
+        radial-gradient(circle at 80% 85%, rgba(214, 170, 120, 0.25), transparent 45%),
+        #f4e6d0;
+    }
+
+    header { text-align: center; }
+
+    h1 {
+      font-size: 2.4rem;
+      letter-spacing: 0.3em;
+      color: #8b2e1e;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      font-size: 0.95rem;
+      color: #8a6a52;
+      letter-spacing: 0.1em;
+    }
+
+    /* 둥근 상 */
+    .table {
+      list-style: none;
+      width: min(520px, 90vw);
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+      justify-content: center;
+      gap: 18px;
+      padding: 14%;
+      background:
+        radial-gradient(circle at 50% 50%, transparent 62%, rgba(0, 0, 0, 0.08) 63%, transparent 64%),
+        radial-gradient(circle at 35% 30%, #b0703f, #8a4f28 60%, #6e3b1c);
+      border: 12px solid #5c2f15;
+      box-shadow:
+        0 20px 40px rgba(92, 47, 21, 0.35),
+        inset 0 0 30px rgba(0, 0, 0, 0.25);
+    }
+
+    /* 반찬 카드 */
+    .table li {
+      width: 104px;
+      padding: 16px 8px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      background: #fffaf0;
+      border: 2px solid #e8d3b5;
+      border-radius: 18px;
+      box-shadow: 0 6px 12px rgba(60, 30, 10, 0.3);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #5a3320;
+      transition: transform 0.2s ease;
+    }
+
+    .table li:hover { transform: translateY(-6px) rotate(-2deg); }
+
+    /* data-emoji 값을 카드 위쪽에 이모지로 보여줌 */
+    .table li::before {
+      content: attr(data-emoji);
+      font-size: 2.6rem;
+      line-height: 1;
+    }
+
+    footer {
+      font-size: 0.85rem;
+      color: #a0805f;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>오늘의 밥상</h1>
+    <p class="subtitle">따뜻한 한 끼 드세요</p>
+  </header>
+
+  <!--
+    반찬 목록
+    아래 형식으로 한 줄씩 추가하면 상 위에 카드가 하나씩 늘어나요.
+    예시)
+      <li data-emoji="🥚">계란말이</li>
+      <li data-emoji="🐟">고등어구이</li>
+      <li data-emoji="🥬">시금치나물</li>
+  -->
+  <ul class="table">
+    <li data-emoji="🍚">밥</li>
+    <li data-emoji="🍲">국</li>
+    <li data-emoji="🌶️">김치</li>
+  </ul>
+
+  <footer>잘 먹겠습니다 🙏</footer>
+</body>
+</html>
